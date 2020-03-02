@@ -1,0 +1,6 @@
+v.1.0
+ - First Release
+ - English language provided
+ - Addon finds NVIDIA GeForce NOW in it's default location if installed
+ - Automatically stops any playback from Kodi
+ - In settings user can input a custom location
