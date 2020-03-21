@@ -1,3 +1,8 @@
+v.1.1
+ - Added a option in settings to control whether or not stop playback in Kodi
+ - Fixed how using a custom exacutable works
+ - General code clean-up
+
 v.1.0
  - First Release
  - English language provided
