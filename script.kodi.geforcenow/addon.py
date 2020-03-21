@@ -6,13 +6,14 @@ import platform
 import os.path
 import subprocess
 
-ADDON = xbmcaddon.Addon('script.kodi.launches.steam')
+ADDON = xbmcaddon.Addon('script.kodi.geforcenow')
 ADDON_ID = ADDON.getAddonInfo('id')
 ADDON_NAME = ADDON.getAddonInfo('name')
 ADDON_VERSION = ADDON.getAddonInfo('version')
 MSG = ADDON.getLocalizedString
 
 useCustomExecutable = ADDON.getSetting('useCustomExecutable')
+stopMedia = ADDON.getSetting('stopMedia')
 
 
 def log(message, level=xbmc.LOGNOTICE):
@@ -54,7 +55,10 @@ def stopMediaPlayback():
 def execute(executable):
     parameters = ''
     log('Calling executable: {0}  with parameters: {1}'.format(executable,parameters))
-    stopMediaPlayback()
+
+    if stopMedia:
+        stopMediaPlayback()
+
     subprocess.call([executable, parameters])
 
 

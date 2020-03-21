@@ -59,3 +59,7 @@ msgstr ""
 msgctxt "#32010"
 msgid "The custom executable was not found. Please select a new location for it on the Addon Settings."
 msgstr ""
+
+msgctxt "#32011"
+msgid "Stop all media playback on start"
+msgstr ""

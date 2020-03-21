@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <settings>
     <category label="32000">
+        <setting id="stopMedia" label="32011" type="bool" default="false"/>
         <setting id="useCustomExecutable" label="32001" type="bool" default="false"/>
         <setting id="customExecutable" label="32002" type="executable" default="" subsetting="true" enable="eq(-1,true)"/>
     </category>
