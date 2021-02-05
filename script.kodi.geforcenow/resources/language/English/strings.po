@@ -1,7 +1,7 @@
 # Kodi Media Center language file
 # Addon Name: Kodi GeForceNOW
 # Addon id: script.kodi.geforcenow
-# Addon Provider: iampeluca <diego.hernandez.perez.cr@gmail.com>
+# Addon Provider: Szymon Zborowski <szymonosis@o2.pl>
 msgid ""
 msgstr ""
 "Project-Id-Version: script.kodi.geforcenow\n"
@@ -15,10 +15,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Language: en\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);f\n"
-
-msgctxt "#32000"
-msgid "General"
-msgstr ""
 
 msgctxt "#32001"
 msgid "Use custom executable:"
