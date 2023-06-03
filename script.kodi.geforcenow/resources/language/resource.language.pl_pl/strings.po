@@ -1,61 +1,61 @@
 # Kodi Media Center language file
 # Addon Name: Kodi GeForceNOW
 # Addon id: script.kodi.geforcenow
-# Addon Provider: Szymon Zborowski <szymonosis@o2.pl>
+# Addon Provider: Szymon Zborowski <szzborowski@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: script.kodi.geforcenow\n"
-"Report-Msgid-Bugs-To: szymonosis@o2.pl\n"
+"Report-Msgid-Bugs-To: szzborowski@gmail.com\n"
 "POT-Creation-Date: 2020-03-02 15:30-0600\n"
-"PO-Revision-Date: 2020-03-02 15:30-0600\n"
-"Last-Translator: Szymon Zborowski <szymonosis@o2.pl>\n"
-"Language-Team: English <szymonosis@o2.pl>\n"
+"PO-Revision-Date: 2023-06-03 15:14-0600\n"
+"Last-Translator: Szymon Zborowski <szzborowski@gmail.com>\n"
+"Language-Team: Polish <szzborowski@gmail.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: en\n"
+"Language: pl\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);f\n"
 
 msgctxt "#32001"
 msgid "Use custom executable:"
-msgstr ""
+msgstr "Użyj innego pliku .exe:"
 
 msgctxt "#32002"
 msgid "Custom Executable:"
-msgstr ""
+msgstr "Ścieżka:"
 
 msgctxt "#32003"
 msgid "Executable not found"
-msgstr ""
+msgstr "Nie znaleziono pliku .exe"
 
 msgctxt "#32004"
-msgid "The NVIDIA GeForceNOW executable was not found on your System on the expected locations."
-msgstr ""
+msgid "The NVIDIA GeForceNOW executable was not found on your System in the expected locations."
+msgstr "Nie znaleziono zainstalowanego NVIDIA GeForceNOW na komputerze."
 
 msgctxt "#32005"
 msgid "Addon Settings"
-msgstr ""
+msgstr "Ustawienia Wtyczki"
 
 msgctxt "#32006"
 msgid "Would you like to open the Addon Settings and specify the NVIDIA GeForceNOW location?"
-msgstr ""
+msgstr "Czy chcesz otworzyć ustawienia wtyczki i wybrać lokalizację NVIDIA GeForceNOW?"
 
 msgctxt "#32007"
 msgid "Windows Not Detected"
-msgstr ""
+msgstr "Zły system operacyjny"
 
 msgctxt "#32008"
 msgid "This Addon currently works only on Windows platforms."
-msgstr ""
+msgstr "Ta wtyczka działa w tym momencie tylko na platformie Windows."
 
 msgctxt "#32009"
 msgid "Custom executable not found"
-msgstr ""
+msgstr "Nie znaleziono podanego pliku .exe"
 
 msgctxt "#32010"
 msgid "The custom executable was not found. Please select a new location for it on the Addon Settings."
-msgstr ""
+msgstr "Nie znaleziono podanego pliku .exe. Proszę wybrać nową lokalizację w ustawieniach wtyczki."
 
 msgctxt "#32011"
 msgid "Stop all media playback on start"
-msgstr ""
+msgstr "Zatrzymaj wszystkie odtwarzane media przy starcie"

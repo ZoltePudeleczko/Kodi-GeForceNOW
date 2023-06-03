@@ -1,3 +1,8 @@
+v.2.0
+- Assure support with latest Kodi versions (bump xbmc.python libary)
+- Add Polish language translation :poland:
+- Clean-up addon information, update repository url
+
 v.1.2 
 - Rewrite changelog to markdown file
 - Update language file 

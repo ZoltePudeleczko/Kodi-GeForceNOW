@@ -6,17 +6,17 @@ import platform
 import os.path
 import subprocess
 
-ADDON = xbmcaddon.Addon('script.kodi.geforcenow')
-ADDON_ID = ADDON.getAddonInfo('id')
-ADDON_NAME = ADDON.getAddonInfo('name')
-ADDON_VERSION = ADDON.getAddonInfo('version')
+ADDON = xbmcaddon.Addon("script.kodi.geforcenow")
+ADDON_ID = ADDON.getAddonInfo("id")
+ADDON_NAME = ADDON.getAddonInfo("name")
+ADDON_VERSION = ADDON.getAddonInfo("version")
 MSG = ADDON.getLocalizedString
 
-useCustomExecutable = ADDON.getSetting('useCustomExecutable')
-stopMedia = ADDON.getSetting('stopMedia')
+useCustomExecutable = ADDON.getSetting("useCustomExecutable")
+stopMedia = ADDON.getSetting("stopMedia")
 
 
-def log(message, level=xbmc.LOGNOTICE):
+def log(message, level=xbmc.LOGINFO):
     xbmc.log("[{0}:v{1}] {2}".format(ADDON_ID, ADDON_VERSION, message), level)
 
 
@@ -53,8 +53,8 @@ def stopMediaPlayback():
 
 
 def execute(executable):
-    parameters = ''
-    log('Calling executable: {0}  with parameters: {1}'.format(executable,parameters))
+    parameters = ""
+    log("Calling executable: {0}  with parameters: {1}".format(executable, parameters))
 
     if stopMedia:
         stopMediaPlayback()
@@ -64,28 +64,33 @@ def execute(executable):
 
 log("Starting Addon")
 
-if useCustomExecutable == 'true':
-    customExecutable = ADDON.getSetting('customExecutable')
+if useCustomExecutable == "true":
+    customExecutable = ADDON.getSetting("customExecutable")
     if os.path.isfile(customExecutable):
         execute(customExecutable)
     else:
-        log('Executable not found on the custom location provided by user', xbmc.LOGERROR)
+        log(
+            "Executable not found on the custom location provided by user",
+            xbmc.LOGERROR,
+        )
         showCustomExecutableNotFoundDialog()
 
 else:
-    executable = ''
-    executableTemp = ''
+    executable = ""
+    executableTemp = ""
 
-    if platform.system() == 'Windows':
-        executableTemp = os.path.expandvars(r'%LOCALAPPDATA%\NVIDIA Corporation\GeForceNOW\CEF\GeForceNOW.exe')
+    if platform.system() == "Windows":
+        executableTemp = os.path.expandvars(
+            r"%LOCALAPPDATA%\NVIDIA Corporation\GeForceNOW\CEF\GeForceNOW.exe"
+        )
         if os.path.isfile(executableTemp):
             executable = executableTemp
         else:
-            log('Windows executable not found on default paths', xbmc.LOGERROR)
+            log("Windows executable not found on default paths", xbmc.LOGERROR)
             showExecutableNotFoundDialog()
         if executable:
             execute(executable)
 
     else:
-        log('Platforms other than Windows are not supported now', xbmc.LOGERROR)
+        log("Platforms other than Windows are not supported now", xbmc.LOGERROR)
         showWindowsNotDetected()

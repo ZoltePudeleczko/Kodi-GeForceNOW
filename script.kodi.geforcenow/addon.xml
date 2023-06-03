@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<addon id="script.kodi.geforcenow" name="GeForce NOW" version="1.2.0" provider-name="GanzeVA">
+<addon id="script.kodi.geforcenow" name="GeForce NOW" version="2.0.0"
+	provider-name="ZoltePudeleczko">
 	<requires>
-		<import addon="xbmc.python" version="2.25.0"/>
+		<import addon="xbmc.python" version="3.0.0" />
 	</requires>
 	<extension point="xbmc.python.script" library="addon.py">
 		<provides>executable</provides>
@@ -10,13 +11,17 @@
 		<platform>windx</platform>
 		<summary lang="en">Kodi Addon for launching GeForce NOW</summary>
 		<description lang="en">Kodi Addon for launching NVIDIA GeForce NOW app.</description>
+		<summary lang="pl">Wtyczka do odpalania GeForce NOW</summary>
+		<description lang="pl">Wtyczka do odpalania aplikacji NVIDIA GeForce NOW.</description>
 		<license>GNU GENERAL PUBLIC LICENSE. Version 3, 29 June 2007</license>
-		<language>en</language>
-		<source>https://github.com/GanzeVA/Kodi-GeForceNOW</source>
-		<website>https://github.com/GanzeVA/Kodi-GeForceNOW</website>
-		<forum></forum>
-		<email>szymonosis@o2.pl</email>
-		<news></news>
+		<news>v.2.0 (2023-06-03)
+			- Assure support with latest Kodi versions (bump xbmc.python libary)
+			- Add Polish language translation
+			- Clean-up addon information, update repository url
+		</news>
+		<source>https://github.com/ZoltePudeleczko/Kodi-GeForceNOW</source>
+		<website>https://github.com/ZoltePudeleczko/Kodi-GeForceNOW</website>
+		<email>szzborowski@gmail.com</email>
 		<assets>
 			<icon>icon.png</icon>
 			<fanart>fanart.jpg</fanart>

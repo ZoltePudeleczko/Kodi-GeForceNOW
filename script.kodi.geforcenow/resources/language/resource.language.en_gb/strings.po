@@ -1,0 +1,61 @@
+# Kodi Media Center language file
+# Addon Name: Kodi GeForceNOW
+# Addon id: script.kodi.geforcenow
+# Addon Provider: Szymon Zborowski <szzborowski@gmail.com>
+msgid ""
+msgstr ""
+"Project-Id-Version: script.kodi.geforcenow\n"
+"Report-Msgid-Bugs-To: szzborowski@gmail.com\n"
+"POT-Creation-Date: 2020-03-02 15:30-0600\n"
+"PO-Revision-Date: 2023-06-03 15:14-0600\n"
+"Last-Translator: Szymon Zborowski <szzborowski@gmail.com>\n"
+"Language-Team: English <szzborowski@gmail.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: en\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);f\n"
+
+msgctxt "#32001"
+msgid "Use custom executable:"
+msgstr ""
+
+msgctxt "#32002"
+msgid "Custom Executable:"
+msgstr ""
+
+msgctxt "#32003"
+msgid "Executable not found"
+msgstr ""
+
+msgctxt "#32004"
+msgid "The NVIDIA GeForceNOW executable was not found on your System in the expected locations."
+msgstr ""
+
+msgctxt "#32005"
+msgid "Addon Settings"
+msgstr ""
+
+msgctxt "#32006"
+msgid "Would you like to open the Addon Settings and specify the NVIDIA GeForceNOW location?"
+msgstr ""
+
+msgctxt "#32007"
+msgid "Windows Not Detected"
+msgstr ""
+
+msgctxt "#32008"
+msgid "This Addon currently works only on Windows platforms."
+msgstr ""
+
+msgctxt "#32009"
+msgid "Custom executable not found"
+msgstr ""
+
+msgctxt "#32010"
+msgid "The custom executable was not found. Please select a new location for it on the Addon Settings."
+msgstr ""
+
+msgctxt "#32011"
+msgid "Stop all media playback on start"
+msgstr ""

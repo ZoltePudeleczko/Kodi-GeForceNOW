@@ -3,6 +3,8 @@
 
 Kodi addon for launching NVIDIA GeForce NOW app
 
+Supports the latest Kodi v20.1 (and probably even newer ones)
+
 ## Keep in mind
 - You have to have official NVIDIA GeForce NOW app installed - you can get it [here](https://www.nvidia.com/en-us/geforce-now/download/)
 - Currently only supports Windows
