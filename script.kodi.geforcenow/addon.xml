@@ -31,11 +31,9 @@
 		<email>szzborowski@gmail.com</email>
 		<assets>
 			<icon>resources/icon.png</icon>
-			<icon>sdas</icon>
 			<fanart>resources/fanart.jpg</fanart>
-			<banner>resources/banner.png</banner>
-			<clearlogo>resources/logo.png</clearlogo>
-			<screenshot>resources/screenshot.png</screenshot>
+			<banner>resources/banner.jpg</banner>
+			<clearlogo>resources/clearlogo.png</clearlogo>
 		</assets>
 	</extension>
 </addon>
