@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<addon id="script.kodi.geforcenow" name="GeForce NOW" version="2.1.0"
+<addon id="script.geforcenow" name="GeForce NOW" version="2.1.0"
 	provider-name="ZoltePudeleczko">
 	<requires>
 		<import addon="xbmc.python" version="3.0.1" />
