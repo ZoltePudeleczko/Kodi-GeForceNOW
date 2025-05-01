@@ -1,6 +1,6 @@
 # Kodi GeForceNOW Addon
 
-![Addon banner](/script.kodi.geforcenow/resources/banner.jpg)
+![Addon banner](/script.geforcenow/resources/banner.jpg)
 
 [![GitHub release](https://img.shields.io/github/v/release/ZoltePudeleczko/Kodi-GeForceNOW.svg)](https://github.com/ZoltePudeleczko/Kodi-GeForceNOW/releases)
 
@@ -30,7 +30,7 @@ Please share your feedback and report any bugs on the [Issues](https://github.co
 
 ### Changelog
 
-The full changelog is available [here](/script.kodi.geforcenow/changelog.md).
+The full changelog is available [here](/script.geforcenow/changelog.md).
 
 ## Also check out
 
