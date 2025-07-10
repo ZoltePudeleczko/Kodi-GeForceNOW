@@ -6,7 +6,7 @@ import platform
 import os.path
 import subprocess
 
-ADDON = xbmcaddon.Addon("script.kodi.geforcenow")
+ADDON = xbmcaddon.Addon("script.geforcenow")
 ADDON_ID = ADDON.getAddonInfo("id")
 ADDON_NAME = ADDON.getAddonInfo("name")
 ADDON_VERSION = ADDON.getAddonInfo("version")
