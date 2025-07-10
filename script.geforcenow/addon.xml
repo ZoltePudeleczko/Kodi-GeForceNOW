@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<addon id="script.geforcenow" name="GeForce NOW" version="2.1.0"
+<addon id="script.geforcenow" name="GeForce NOW" version="2.2.0"
 	provider-name="ZoltePudeleczko">
 	<requires>
 		<import addon="xbmc.python" version="3.0.1" />
@@ -20,11 +20,10 @@
 		<disclaimer lang="es">Este complemento no está afiliado a NVIDIA Corporation.</disclaimer>
 		<language>en es pl</language>
 		<license>GNU GENERAL PUBLIC LICENSE. Version 3, 29 June 2007</license>
-		<news>v.2.1 (2025-05-01)
-			- Ensure support with Kodi v21.2 (Omega)
-			- Add support for Spanish language :es:
-			- Bump xbmc.python library to 3.0.1
-			- Extend logging
+		<news>v.2.2 (2025-07-10)
+			- Refactor addon.py to add type hints and improve function documentation
+			- Fix settings configuration mismatch issue
+			- Update addon ID to match new naming convention
 		</news>
 		<source>https://github.com/ZoltePudeleczko/Kodi-GeForceNOW</source>
 		<website>https://github.com/ZoltePudeleczko/Kodi-GeForceNOW</website>

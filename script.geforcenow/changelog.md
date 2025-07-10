@@ -1,5 +1,11 @@
 # Changelog
 
+## v.2.2
+
+- Refactor addon.py to add type hints and improve function documentation
+- Fix settings configuration mismatch issue
+- Update addon ID to match new naming convention
+
 ## v.2.1
 
 - Ensure support with Kodi v21.2 (Omega)
