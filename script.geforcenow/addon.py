@@ -5,56 +5,68 @@ import xbmcgui
 import platform
 import os.path
 import subprocess
+from typing import Optional
 
-ADDON = xbmcaddon.Addon("script.geforcenow")
-ADDON_ID = ADDON.getAddonInfo("id")
-ADDON_NAME = ADDON.getAddonInfo("name")
-ADDON_VERSION = ADDON.getAddonInfo("version")
+ADDON: xbmcaddon.Addon = xbmcaddon.Addon("script.geforcenow")
+ADDON_ID: str = ADDON.getAddonInfo("id")
+ADDON_NAME: str = ADDON.getAddonInfo("name")
+ADDON_VERSION: str = ADDON.getAddonInfo("version")
 MSG = ADDON.getLocalizedString
 
-useCustomExecutable = ADDON.getSetting("useCustomExecutable") == "true"
-stopMedia = ADDON.getSetting("stopMedia") == "true"
+useCustomExecutable: bool = ADDON.getSetting("useCustomExecutable") == "true"
+stopMedia: bool = ADDON.getSetting("stopMedia") == "true"
 
 
-def log(message, level=xbmc.LOGINFO):
+def log(message: str, level: int = xbmc.LOGINFO) -> None:
+    """Log a message to Kodi's log system."""
     xbmc.log(f"[{ADDON_ID}:v{ADDON_VERSION}] {message}", level)
 
 
-def showExecutableNotFoundDialog():
-    title = MSG(32003)
-    message = MSG(32004)
+def showExecutableNotFoundDialog() -> None:
+    """Show dialog when executable is not found and offer to open settings."""
+    title: str = MSG(32003)
+    message: str = MSG(32004)
     xbmcgui.Dialog().ok(title, message)
     showOpenSettingsDialog()
 
 
-def showOpenSettingsDialog():
-    title = MSG(32005)
-    message = MSG(32006)
+def showOpenSettingsDialog() -> None:
+    """Show dialog asking user if they want to open addon settings."""
+    title: str = MSG(32005)
+    message: str = MSG(32006)
     if xbmcgui.Dialog().yesno(title, message):
         ADDON.openSettings()
 
 
-def showWindowsNotDetected():
-    title = MSG(32007)
-    message = MSG(32008)
+def showWindowsNotDetected() -> None:
+    """Show dialog when Windows platform is not detected."""
+    title: str = MSG(32007)
+    message: str = MSG(32008)
     xbmcgui.Dialog().ok(title, message)
 
 
-def showCustomExecutableNotFoundDialog():
-    title = MSG(32009)
-    message = MSG(32010)
+def showCustomExecutableNotFoundDialog() -> None:
+    """Show dialog when custom executable is not found and offer to open settings."""
+    title: str = MSG(32009)
+    message: str = MSG(32010)
     xbmcgui.Dialog().ok(title, message)
     showOpenSettingsDialog()
 
 
-def stopMediaPlayback():
-    player = xbmc.Player()
+def stopMediaPlayback() -> None:
+    """Stop any currently playing media in Kodi."""
+    player: xbmc.Player = xbmc.Player()
     player.stop()
 
 
-def find_executable():
+def find_executable() -> Optional[str]:
+    """Find the GeForce NOW executable on the system.
+    
+    Returns:
+        Path to the executable if found, None otherwise.
+    """
     if platform.system() == "Windows":
-        default_path = os.path.expandvars(
+        default_path: str = os.path.expandvars(
             r"%LOCALAPPDATA%\\NVIDIA Corporation\\GeForceNOW\\CEF\\GeForceNOW.exe"
         )
         if os.path.isfile(default_path):
@@ -68,7 +80,13 @@ def find_executable():
     return None
 
 
-def execute(executable, parameters=""):
+def execute(executable: str, parameters: str = "") -> None:
+    """Execute the GeForce NOW application.
+    
+    Args:
+        executable: Path to the executable file to run.
+        parameters: Optional command line parameters to pass to the executable.
+    """
     log(f"Calling executable: {executable} with parameters: {parameters}")
 
     if stopMedia:
@@ -83,7 +101,7 @@ def execute(executable, parameters=""):
 log("Starting GeForceNOW launcher addon")
 
 if useCustomExecutable:
-    customExecutable = ADDON.getSetting("customExecutable")
+    customExecutable: str = ADDON.getSetting("customExecutable")
     if os.path.isfile(customExecutable):
         execute(customExecutable)
     else:
@@ -93,6 +111,6 @@ if useCustomExecutable:
         )
         showCustomExecutableNotFoundDialog()
 else:
-    executable = find_executable()
+    executable: Optional[str] = find_executable()
     if executable:
         execute(executable)
