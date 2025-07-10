@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <settings version="1">
-    <section id="script.kodi.geforcenow">
+    <section id="script.geforcenow">
         <category id="addon settings" label="32005" help="">
             <group id="1">
                 <setting id="stopMedia" type="boolean" label="32011" help="">
