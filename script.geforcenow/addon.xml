@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<addon id="script.geforcenow" name="GeForce NOW" version="2.2.0"
+<addon id="script.geforcenow" name="GeForce NOW" version="2.3.0"
 	provider-name="ZoltePudeleczko">
 	<requires>
 		<import addon="xbmc.python" version="3.0.1" />
@@ -8,7 +8,7 @@
 		<provides>executable</provides>
 	</extension>
 	<extension point="xbmc.addon.metadata">
-		<platform>windx</platform>
+		<platform>windows linux</platform>
 		<summary lang="en">Kodi Addon for launching GeForce NOW</summary>
 		<description lang="en">Kodi Addon for launching NVIDIA GeForce NOW app.</description>
 		<disclaimer lang="en">This add-on is not affiliated with NVIDIA Corporation.</disclaimer>
@@ -20,10 +20,8 @@
 		<disclaimer lang="es">Este complemento no está afiliado a NVIDIA Corporation.</disclaimer>
 		<language>en es pl</language>
 		<license>GNU GENERAL PUBLIC LICENSE. Version 3, 29 June 2007</license>
-		<news>v.2.2 (2025-07-10)
-			- Refactor addon.py to add type hints and improve function documentation
-			- Fix settings configuration mismatch issue
-			- Update addon ID to match new naming convention
+		<news>v.2.3 (2026-01-12)
+			- Add Linux support (default launch via Flatpak: io.github.hmlendea.geforcenow-electron)
 		</news>
 		<source>https://github.com/ZoltePudeleczko/Kodi-GeForceNOW</source>
 		<website>https://github.com/ZoltePudeleczko/Kodi-GeForceNOW</website>

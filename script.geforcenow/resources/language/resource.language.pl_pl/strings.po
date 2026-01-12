@@ -59,3 +59,19 @@ msgstr "Nie znaleziono podanego pliku .exe. Proszę wybrać nową lokalizację w
 msgctxt "#32011"
 msgid "Stop all media playback on start"
 msgstr "Zatrzymaj wszystkie odtwarzane media przy starcie"
+
+msgctxt "#32012"
+msgid "Flatpak not found"
+msgstr "Nie znaleziono Flatpaka"
+
+msgctxt "#32013"
+msgid "Flatpak was not found on your system. Install Flatpak or configure a custom executable in the Addon Settings."
+msgstr "Nie znaleziono Flatpaka w systemie. Zainstaluj Flatpaka lub skonfiguruj własny plik wykonywalny w ustawieniach wtyczki."
+
+msgctxt "#32014"
+msgid "GeForce NOW Flatpak not installed"
+msgstr "Flatpak GeForce NOW nie jest zainstalowany"
+
+msgctxt "#32015"
+msgid "The Flatpak 'io.github.hmlendea.geforcenow-electron' is not installed. Install it or configure a custom executable in the Addon Settings."
+msgstr "Flatpak 'io.github.hmlendea.geforcenow-electron' nie jest zainstalowany. Zainstaluj go lub skonfiguruj własny plik wykonywalny w ustawieniach wtyczki."

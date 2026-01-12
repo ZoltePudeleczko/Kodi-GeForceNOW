@@ -5,7 +5,9 @@ import xbmcgui
 import platform
 import os.path
 import subprocess
+import shutil
 from typing import Optional
+from typing import List
 
 ADDON: xbmcaddon.Addon = xbmcaddon.Addon("script.geforcenow")
 ADDON_ID: str = ADDON.getAddonInfo("id")
@@ -59,58 +61,102 @@ def stopMediaPlayback() -> None:
     player.stop()
 
 
-def find_executable() -> Optional[str]:
-    """Find the GeForce NOW executable on the system.
-    
-    Returns:
-        Path to the executable if found, None otherwise.
-    """
-    if platform.system() == "Windows":
-        default_path: str = os.path.expandvars(
-            r"%LOCALAPPDATA%\\NVIDIA Corporation\\GeForceNOW\\CEF\\GeForceNOW.exe"
-        )
-        if os.path.isfile(default_path):
-            return default_path
-        else:
-            log("Windows executable not found on default path", xbmc.LOGERROR)
-            showExecutableNotFoundDialog()
-    else:
-        log("Platforms other than Windows are not supported now, sorry", xbmc.LOGERROR)
-        showWindowsNotDetected()
-    return None
+def showFlatpakNotFoundDialog() -> None:
+    """Show dialog when Flatpak is not available on the system."""
+    title: str = MSG(32012)
+    message: str = MSG(32013)
+    xbmcgui.Dialog().ok(title, message)
+    showOpenSettingsDialog()
 
 
-def execute(executable: str, parameters: str = "") -> None:
-    """Execute the GeForce NOW application.
-    
-    Args:
-        executable: Path to the executable file to run.
-        parameters: Optional command line parameters to pass to the executable.
-    """
-    log(f"Calling executable: {executable} with parameters: {parameters}")
+def showGeForceNowFlatpakNotInstalledDialog() -> None:
+    """Show dialog when the expected GeForce NOW Flatpak is not installed."""
+    title: str = MSG(32014)
+    message: str = MSG(32015)
+    xbmcgui.Dialog().ok(title, message)
+    showOpenSettingsDialog()
 
-    if stopMedia:
-        stopMediaPlayback()
 
+def is_flatpak_available() -> bool:
+    return shutil.which("flatpak") is not None
+
+
+def is_flatpak_app_installed(app_id: str) -> bool:
+    """Check whether a Flatpak app is installed by calling `flatpak info`."""
     try:
-        subprocess.run([executable] + parameters.split(), check=True)
-    except subprocess.CalledProcessError as e:
-        log(f"Error executing {executable}: {e}", xbmc.LOGERROR)
+        result = subprocess.run(
+            ["flatpak", "info", app_id],
+            check=False,
+            stdout=subprocess.DEVNULL,
+            stderr=subprocess.DEVNULL,
+        )
+        return result.returncode == 0
+    except Exception as e:
+        log(f"Error while checking flatpak app installation: {e}", xbmc.LOGERROR)
+        return False
 
 
-log("Starting GeForceNOW launcher addon")
+def resolve_launch_command() -> Optional[List[str]]:
+    """Resolve the command to launch GeForce NOW based on platform and settings."""
+    system: str = platform.system()
 
-if useCustomExecutable:
-    customExecutable: str = ADDON.getSetting("customExecutable")
-    if os.path.isfile(customExecutable):
-        execute(customExecutable)
-    else:
+    if useCustomExecutable:
+        customExecutable: str = ADDON.getSetting("customExecutable")
+        if os.path.isfile(customExecutable):
+            return [customExecutable]
         log(
             "Executable not found on the custom location provided by user",
             xbmc.LOGERROR,
         )
         showCustomExecutableNotFoundDialog()
-else:
-    executable: Optional[str] = find_executable()
-    if executable:
-        execute(executable)
+        return None
+
+    if system == "Windows":
+        default_path: str = os.path.expandvars(
+            r"%LOCALAPPDATA%\\NVIDIA Corporation\\GeForceNOW\\CEF\\GeForceNOW.exe"
+        )
+        if os.path.isfile(default_path):
+            return [default_path]
+        log("Windows executable not found on default path", xbmc.LOGERROR)
+        showExecutableNotFoundDialog()
+        return None
+
+    if system == "Linux":
+        app_id: str = "io.github.hmlendea.geforcenow-electron"
+        if not is_flatpak_available():
+            log("Flatpak not found in PATH", xbmc.LOGERROR)
+            showFlatpakNotFoundDialog()
+            return None
+        if not is_flatpak_app_installed(app_id):
+            log(f"Required Flatpak app not installed: {app_id}", xbmc.LOGERROR)
+            showGeForceNowFlatpakNotInstalledDialog()
+            return None
+        return ["flatpak", "run", app_id]
+
+    log(f"Unsupported platform detected: {system}", xbmc.LOGERROR)
+    showWindowsNotDetected()
+    return None
+
+
+def execute(command: List[str]) -> None:
+    """Execute the GeForce NOW application.
+    
+    Args:
+        command: Command (argv list) to execute.
+    """
+    log(f"Calling command: {command}")
+
+    if stopMedia:
+        stopMediaPlayback()
+
+    try:
+        subprocess.run(command, check=True)
+    except subprocess.CalledProcessError as e:
+        log(f"Error executing command {command}: {e}", xbmc.LOGERROR)
+
+
+log("Starting GeForceNOW launcher addon")
+
+command: Optional[List[str]] = resolve_launch_command()
+if command:
+    execute(command)

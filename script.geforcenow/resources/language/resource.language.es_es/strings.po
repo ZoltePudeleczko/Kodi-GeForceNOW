@@ -59,3 +59,19 @@ msgstr "No se encontró el ejecutable personalizado. Por favor, seleccione una n
 msgctxt "#32011"
 msgid "Stop all media playback on start"
 msgstr "Detener toda la reproducción de medios al iniciar"
+
+msgctxt "#32012"
+msgid "Flatpak not found"
+msgstr "Flatpak no encontrado"
+
+msgctxt "#32013"
+msgid "Flatpak was not found on your system. Install Flatpak or configure a custom executable in the Addon Settings."
+msgstr "Flatpak no se encontró en su sistema. Instale Flatpak o configure un ejecutable personalizado en la configuración del complemento."
+
+msgctxt "#32014"
+msgid "GeForce NOW Flatpak not installed"
+msgstr "Flatpak de GeForce NOW no instalado"
+
+msgctxt "#32015"
+msgid "The Flatpak 'io.github.hmlendea.geforcenow-electron' is not installed. Install it or configure a custom executable in the Addon Settings."
+msgstr "El Flatpak 'io.github.hmlendea.geforcenow-electron' no está instalado. Instálelo o configure un ejecutable personalizado en la configuración del complemento."

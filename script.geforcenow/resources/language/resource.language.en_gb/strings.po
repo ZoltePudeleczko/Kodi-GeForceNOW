@@ -59,3 +59,19 @@ msgstr ""
 msgctxt "#32011"
 msgid "Stop all media playback on start"
 msgstr ""
+
+msgctxt "#32012"
+msgid "Flatpak not found"
+msgstr ""
+
+msgctxt "#32013"
+msgid "Flatpak was not found on your system. Install Flatpak or configure a custom executable in the Addon Settings."
+msgstr ""
+
+msgctxt "#32014"
+msgid "GeForce NOW Flatpak not installed"
+msgstr ""
+
+msgctxt "#32015"
+msgid "The Flatpak 'io.github.hmlendea.geforcenow-electron' is not installed. Install it or configure a custom executable in the Addon Settings."
+msgstr ""

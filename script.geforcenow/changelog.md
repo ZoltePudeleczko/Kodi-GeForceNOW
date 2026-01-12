@@ -1,5 +1,9 @@
 # Changelog
 
+## v.2.3
+
+- Add Linux support (default launch via Flatpak: `flatpak run io.github.hmlendea.geforcenow-electron`)
+
 ## v.2.2
 
 - Refactor addon.py to add type hints and improve function documentation
