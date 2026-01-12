@@ -1,77 +1,77 @@
 # Kodi Media Center language file
-# Addon Name: Kodi GeForceNOW
-# Addon id: script.kodi.geforcenow
-# Addon Provider: Szymon Zborowski <szzborowski@gmail.com>
+# Addon Name: GeForce NOW
+# Addon id: script.geforcenow
+# Addon Provider: ZoltePudeleczko
 msgid ""
 msgstr ""
-"Project-Id-Version: script.kodi.geforcenow\n"
+"Project-Id-Version: script.geforcenow\n"
 "Report-Msgid-Bugs-To: szzborowski@gmail.com\n"
-"POT-Creation-Date: 2020-03-02 15:30-0600\n"
-"PO-Revision-Date: 2023-06-03 15:14-0600\n"
-"Last-Translator: Szymon Zborowski <szzborowski@gmail.com>\n"
-"Language-Team: English <szzborowski@gmail.com>\n"
+"POT-Creation-Date: 2026-01-12 00:00+0000\n"
+"PO-Revision-Date: 2026-01-12 00:00+0000\n"
+"Last-Translator: \n"
+"Language-Team: Italian\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: en\n"
+"Language: it\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);f\n"
 
 msgctxt "#32001"
 msgid "Use custom executable:"
-msgstr ""
+msgstr "Usa eseguibile personalizzato:"
 
 msgctxt "#32002"
 msgid "Custom Executable:"
-msgstr ""
+msgstr "Eseguibile personalizzato:"
 
 msgctxt "#32003"
 msgid "Executable not found"
-msgstr ""
+msgstr "Eseguibile non trovato"
 
 msgctxt "#32004"
 msgid "The NVIDIA GeForceNOW executable was not found on your System in the expected locations."
-msgstr ""
+msgstr "L'eseguibile NVIDIA GeForce NOW non è stato trovato nelle posizioni previste sul tuo sistema."
 
 msgctxt "#32005"
 msgid "Addon Settings"
-msgstr ""
+msgstr "Impostazioni add-on"
 
 msgctxt "#32006"
 msgid "Would you like to open the Addon Settings and specify the NVIDIA GeForceNOW location?"
-msgstr ""
+msgstr "Vuoi aprire le impostazioni dell'add-on e specificare la posizione di NVIDIA GeForce NOW?"
 
 msgctxt "#32007"
 msgid "Unsupported platform"
-msgstr ""
+msgstr "Piattaforma non supportata"
 
 msgctxt "#32008"
 msgid "This Add-on currently works only on Windows and Linux platforms."
-msgstr ""
+msgstr "Questo add-on attualmente funziona solo su piattaforme Windows e Linux."
 
 msgctxt "#32009"
 msgid "Custom executable not found"
-msgstr ""
+msgstr "Eseguibile personalizzato non trovato"
 
 msgctxt "#32010"
 msgid "The custom executable was not found. Please select a new location for it on the Addon Settings."
-msgstr ""
+msgstr "L'eseguibile personalizzato non è stato trovato. Seleziona una nuova posizione nelle impostazioni dell'add-on."
 
 msgctxt "#32011"
 msgid "Stop all media playback on start"
-msgstr ""
+msgstr "Interrompi la riproduzione dei contenuti multimediali all'avvio"
 
 msgctxt "#32012"
 msgid "Flatpak not found"
-msgstr ""
+msgstr "Flatpak non trovato"
 
 msgctxt "#32013"
 msgid "Flatpak was not found on your system. Install Flatpak or configure a custom executable in the Addon Settings."
-msgstr ""
+msgstr "Flatpak non è stato trovato sul tuo sistema. Installa Flatpak o configura un eseguibile personalizzato nelle impostazioni dell'add-on."
 
 msgctxt "#32014"
 msgid "GeForce NOW Flatpak not installed"
-msgstr ""
+msgstr "Flatpak di GeForce NOW non installato"
 
 msgctxt "#32015"
 msgid "The Flatpak 'io.github.hmlendea.geforcenow-electron' is not installed. Install it or configure a custom executable in the Addon Settings."
-msgstr ""
+msgstr "Il Flatpak 'io.github.hmlendea.geforcenow-electron' non è installato. Installalo o configura un eseguibile personalizzato nelle impostazioni dell'add-on."

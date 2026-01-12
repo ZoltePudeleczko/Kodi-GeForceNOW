@@ -41,12 +41,12 @@ msgid "Would you like to open the Addon Settings and specify the NVIDIA GeForceN
 msgstr "Czy chcesz otworzyć ustawienia wtyczki i wybrać lokalizację NVIDIA GeForceNOW?"
 
 msgctxt "#32007"
-msgid "Windows Not Detected"
-msgstr "Zły system operacyjny"
+msgid "Unsupported platform"
+msgstr "Niewspierana platforma"
 
 msgctxt "#32008"
-msgid "This Addon currently works only on Windows platforms."
-msgstr "Ta wtyczka działa w tym momencie tylko na platformie Windows."
+msgid "This Add-on currently works only on Windows and Linux platforms."
+msgstr "Ta wtyczka działa obecnie tylko na platformach Windows i Linux."
 
 msgctxt "#32009"
 msgid "Custom executable not found"

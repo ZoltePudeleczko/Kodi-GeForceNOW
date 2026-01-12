@@ -41,12 +41,12 @@ msgid "Would you like to open the Addon Settings and specify the NVIDIA GeForceN
 msgstr "¿Le gustaría abrir la configuración del complemento y especificar la ubicación de NVIDIA GeForceNOW?"
 
 msgctxt "#32007"
-msgid "Windows Not Detected"
-msgstr "Windows no detectado"
+msgid "Unsupported platform"
+msgstr "Plataforma no compatible"
 
 msgctxt "#32008"
-msgid "This Addon currently works only on Windows platforms."
-msgstr "Este complemento actualmente solo funciona en plataformas Windows."
+msgid "This Add-on currently works only on Windows and Linux platforms."
+msgstr "Este complemento actualmente solo funciona en plataformas Windows y Linux."
 
 msgctxt "#32009"
 msgid "Custom executable not found"

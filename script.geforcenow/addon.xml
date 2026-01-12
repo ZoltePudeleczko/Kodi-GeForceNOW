@@ -12,16 +12,29 @@
 		<summary lang="en">Kodi Addon for launching GeForce NOW</summary>
 		<description lang="en">Kodi Addon for launching NVIDIA GeForce NOW app.</description>
 		<disclaimer lang="en">This add-on is not affiliated with NVIDIA Corporation.</disclaimer>
+		<summary lang="fr">Extension Kodi pour lancer GeForce NOW</summary>
+		<description lang="fr">Extension Kodi pour lancer l'application NVIDIA GeForce NOW.</description>
+		<disclaimer lang="fr">Cette extension n'est pas affiliée à NVIDIA Corporation.</disclaimer>
+		<summary lang="it">Add-on Kodi per avviare GeForce NOW</summary>
+		<description lang="it">Add-on Kodi per avviare l'app NVIDIA GeForce NOW.</description>
+		<disclaimer lang="it">Questo add-on non è affiliato a NVIDIA Corporation.</disclaimer>
+		<summary lang="de">Kodi-Addon zum Starten von GeForce NOW</summary>
+		<description lang="de">Kodi-Addon zum Starten der NVIDIA GeForce NOW-App.</description>
+		<disclaimer lang="de">Dieses Add-on ist nicht mit der NVIDIA Corporation verbunden.</disclaimer>
+		<summary lang="pt">Add-on do Kodi para iniciar o GeForce NOW</summary>
+		<description lang="pt">Add-on do Kodi para iniciar a aplicação NVIDIA GeForce NOW.</description>
+		<disclaimer lang="pt">Este add-on não é afiliado à NVIDIA Corporation.</disclaimer>
 		<summary lang="pl">Wtyczka do odpalania GeForce NOW</summary>
 		<description lang="pl">Wtyczka do odpalania aplikacji NVIDIA GeForce NOW.</description>
 		<disclaimer lang="pl">Ten dodatek nie jest powiązany z NVIDIA Corporation.</disclaimer>
 		<summary lang="es">Complemento de Kodi para lanzar GeForce NOW</summary>
 		<description lang="es">Complemento de Kodi para lanzar la aplicación NVIDIA GeForce NOW.</description>
 		<disclaimer lang="es">Este complemento no está afiliado a NVIDIA Corporation.</disclaimer>
-		<language>en es pl</language>
+		<language>en es pl fr it de pt</language>
 		<license>GNU GENERAL PUBLIC LICENSE. Version 3, 29 June 2007</license>
 		<news>v.2.3 (2026-01-12)
 			- Add Linux support (default launch via Flatpak: io.github.hmlendea.geforcenow-electron)
+			- Add new languages: French, Italian, German, Portuguese
 		</news>
 		<source>https://github.com/ZoltePudeleczko/Kodi-GeForceNOW</source>
 		<website>https://github.com/ZoltePudeleczko/Kodi-GeForceNOW</website>

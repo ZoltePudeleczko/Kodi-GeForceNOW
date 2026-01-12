@@ -18,7 +18,6 @@ MSG = ADDON.getLocalizedString
 useCustomExecutable: bool = ADDON.getSetting("useCustomExecutable") == "true"
 stopMedia: bool = ADDON.getSetting("stopMedia") == "true"
 
-
 def log(message: str, level: int = xbmc.LOGINFO) -> None:
     """Log a message to Kodi's log system."""
     xbmc.log(f"[{ADDON_ID}:v{ADDON_VERSION}] {message}", level)
@@ -40,8 +39,8 @@ def showOpenSettingsDialog() -> None:
         ADDON.openSettings()
 
 
-def showWindowsNotDetected() -> None:
-    """Show dialog when Windows platform is not detected."""
+def showUnsupportedPlatformDetected() -> None:
+    """Show dialog when unsupported platform is detected."""
     title: str = MSG(32007)
     message: str = MSG(32008)
     xbmcgui.Dialog().ok(title, message)
@@ -134,7 +133,7 @@ def resolve_launch_command() -> Optional[List[str]]:
         return ["flatpak", "run", app_id]
 
     log(f"Unsupported platform detected: {system}", xbmc.LOGERROR)
-    showWindowsNotDetected()
+    showUnsupportedPlatformDetected()
     return None
 
 
