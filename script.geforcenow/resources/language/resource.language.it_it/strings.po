@@ -48,14 +48,6 @@ msgctxt "#32008"
 msgid "This Add-on currently works only on Windows and Linux platforms."
 msgstr "Questo add-on attualmente funziona solo su piattaforme Windows e Linux."
 
-msgctxt "#32009"
-msgid "Custom executable not found"
-msgstr "Eseguibile personalizzato non trovato"
-
-msgctxt "#32010"
-msgid "The custom executable was not found. Please select a new location for it on the Addon Settings."
-msgstr "L'eseguibile personalizzato non è stato trovato. Seleziona una nuova posizione nelle impostazioni dell'add-on."
-
 msgctxt "#32011"
 msgid "Stop all media playback on start"
 msgstr "Interrompi la riproduzione dei contenuti multimediali all'avvio"
@@ -75,3 +67,11 @@ msgstr "Flatpak di GeForce NOW non installato"
 msgctxt "#32015"
 msgid "The Flatpak 'io.github.hmlendea.geforcenow-electron' is not installed. Install it or configure a custom executable in the Addon Settings."
 msgstr "Il Flatpak 'io.github.hmlendea.geforcenow-electron' non è installato. Installalo o configura un eseguibile personalizzato nelle impostazioni dell'add-on."
+
+msgctxt "#32025"
+msgid "Flatpak permission required"
+msgstr "Permesso Flatpak richiesto"
+
+msgctxt "#32026"
+msgid "Kodi is running as Flatpak so it cannot start GeForce NOW.\n\nRecommended fix: install Kodi natively (not via Flatpak).\n\nAdvanced: you can try allowing Kodi to talk to Flatpak and restart Kodi:\nflatpak override --user --talk-name=org.freedesktop.Flatpak tv.kodi.Kodi\n\nAlternatively, configure a custom executable in the Addon Settings."
+msgstr "Kodi è in esecuzione come Flatpak, quindi non può avviare GeForce NOW.\n\nCorrezione consigliata: installare Kodi in modo nativo (non tramite Flatpak).\n\nAvanzato: puoi provare a consentire a Kodi di comunicare con Flatpak e riavviare Kodi:\nflatpak override --user --talk-name=org.freedesktop.Flatpak tv.kodi.Kodi\n\nIn alternativa, configura un eseguibile personalizzato nelle impostazioni dell'add-on."

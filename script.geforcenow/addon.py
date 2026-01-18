@@ -3,17 +3,19 @@ import xbmcaddon
 import xbmcgui
 
 import platform
+import os
 import os.path
 import subprocess
 import shutil
 from typing import Optional
 from typing import List
+from typing import Callable
 
 ADDON: xbmcaddon.Addon = xbmcaddon.Addon("script.geforcenow")
 ADDON_ID: str = ADDON.getAddonInfo("id")
 ADDON_NAME: str = ADDON.getAddonInfo("name")
 ADDON_VERSION: str = ADDON.getAddonInfo("version")
-MSG = ADDON.getLocalizedString
+MSG: Callable[[int], str] = ADDON.getLocalizedString
 
 useCustomExecutable: bool = ADDON.getSetting("useCustomExecutable") == "true"
 stopMedia: bool = ADDON.getSetting("stopMedia") == "true"
@@ -45,15 +47,6 @@ def showUnsupportedPlatformDetected() -> None:
     message: str = MSG(32008)
     xbmcgui.Dialog().ok(title, message)
 
-
-def showCustomExecutableNotFoundDialog() -> None:
-    """Show dialog when custom executable is not found and offer to open settings."""
-    title: str = MSG(32009)
-    message: str = MSG(32010)
-    xbmcgui.Dialog().ok(title, message)
-    showOpenSettingsDialog()
-
-
 def stopMediaPlayback() -> None:
     """Stop any currently playing media in Kodi."""
     player: xbmc.Player = xbmc.Player()
@@ -75,28 +68,42 @@ def showGeForceNowFlatpakNotInstalledDialog() -> None:
     xbmcgui.Dialog().ok(title, message)
     showOpenSettingsDialog()
 
+def showFlatpakPermissionRequiredDialog() -> None:
+    """Show dialog when Kodi Flatpak lacks permission to control host Flatpak."""
+    title: str = MSG(32025)
+    message: str = MSG(32026)
+    xbmcgui.Dialog().ok(title, message)
+    showOpenSettingsDialog()
 
-def is_flatpak_available() -> bool:
-    return shutil.which("flatpak") is not None
+def _resolve_flatpak_path() -> Optional[str]:
+    """
+    Resolve an absolute path to `flatpak` on the current filesystem.
+    """
+    found: Optional[str] = shutil.which("flatpak")
+    if found:
+        return found
+    for candidate in ("/usr/bin/flatpak", "/bin/flatpak", "/usr/local/bin/flatpak"):
+        if os.path.isfile(candidate):
+            return candidate
+    return None
 
-
-def is_flatpak_app_installed(app_id: str) -> bool:
-    """Check whether a Flatpak app is installed by calling `flatpak info`."""
-    try:
-        result = subprocess.run(
-            ["flatpak", "info", app_id],
-            check=False,
-            stdout=subprocess.DEVNULL,
-            stderr=subprocess.DEVNULL,
-        )
-        return result.returncode == 0
-    except Exception as e:
-        log(f"Error while checking flatpak app installation: {e}", xbmc.LOGERROR)
-        return False
-
+def _flatpak_base_command() -> Optional[List[str]]:
+    """
+    Return the argv prefix to invoke host flatpak.
+    - If Kodi runs as Flatpak, use `flatpak-spawn --host flatpak`
+    - Otherwise use `flatpak`
+    """
+    if os.path.exists("/.flatpak-info"):
+        # Avoid hardcoding /usr/bin/flatpak on the host; let the host PATH resolve it.
+        return ["flatpak-spawn", "--host", "flatpak"]
+    else:
+        flatpak_path = _resolve_flatpak_path()
+        if flatpak_path is None:
+            return None
+        return [flatpak_path]
 
 def resolve_launch_command() -> Optional[List[str]]:
-    """Resolve the command to launch GeForce NOW based on platform and settings."""
+    """Resolve the command to launch GeForce NOW."""
     system: str = platform.system()
 
     if useCustomExecutable:
@@ -107,7 +114,7 @@ def resolve_launch_command() -> Optional[List[str]]:
             "Executable not found on the custom location provided by user",
             xbmc.LOGERROR,
         )
-        showCustomExecutableNotFoundDialog()
+        showExecutableNotFoundDialog()
         return None
 
     if system == "Windows":
@@ -121,41 +128,47 @@ def resolve_launch_command() -> Optional[List[str]]:
         return None
 
     if system == "Linux":
-        app_id: str = "io.github.hmlendea.geforcenow-electron"
-        if not is_flatpak_available():
-            log("Flatpak not found in PATH", xbmc.LOGERROR)
+        base_cmd: Optional[List[str]] = _flatpak_base_command()
+        if base_cmd is None:
+            log(
+                f"Flatpak not found/available (PATH={os.environ.get('PATH', '')})",
+                xbmc.LOGERROR,
+            )
             showFlatpakNotFoundDialog()
             return None
-        if not is_flatpak_app_installed(app_id):
-            log(f"Required Flatpak app not installed: {app_id}", xbmc.LOGERROR)
-            showGeForceNowFlatpakNotInstalledDialog()
-            return None
-        return ["flatpak", "run", app_id]
+
+        app_id: str = "io.github.hmlendea.geforcenow-electron"
+        return base_cmd + ["run", app_id]
 
     log(f"Unsupported platform detected: {system}", xbmc.LOGERROR)
     showUnsupportedPlatformDetected()
     return None
 
-
-def execute(command: List[str]) -> None:
+def execute(argv: List[str]) -> None:
     """Execute the GeForce NOW application.
     
     Args:
-        command: Command (argv list) to execute.
+        argv: Command argv to execute (e.g. ["flatpak", "run", "io.github.hmlendea.geforcenow-electron"]).
     """
-    log(f"Calling command: {command}")
+    log(f"Calling command: {' '.join(argv)}")
 
     if stopMedia:
         stopMediaPlayback()
 
     try:
-        subprocess.run(command, check=True)
+        subprocess.run(argv, check=True)
+    except FileNotFoundError as e:
+        log(f"Executable not found while executing command ({e})", xbmc.LOGERROR)
+        # Most common on Linux is missing flatpak/flatpak-spawn inside the runtime.
+        showFlatpakNotFoundDialog()
     except subprocess.CalledProcessError as e:
-        log(f"Error executing command {command}: {e}", xbmc.LOGERROR)
+        log(f"Error executing command {' '.join(argv)}: {e}", xbmc.LOGERROR)
 
 
 log("Starting GeForceNOW launcher addon")
 
-command: Optional[List[str]] = resolve_launch_command()
-if command:
-    execute(command)
+argv: Optional[List[str]] = resolve_launch_command()
+if argv:
+    execute(argv)
+else:
+    log("Failed to resolve launch command", xbmc.LOGERROR)
