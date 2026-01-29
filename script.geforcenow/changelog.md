@@ -3,7 +3,7 @@
 ## v.2.3
 
 - Add Linux support (default launch via Flatpak: `flatpak run io.github.hmlendea.geforcenow-electron`)
-- Add new languages: French :france:, Italian :italy:, German :germany:, Portuguese :portugal:
+- Add new languages: French :fr:, Italian :it:, German :de:, Portuguese :portugal:
 
 ## v.2.2
 
