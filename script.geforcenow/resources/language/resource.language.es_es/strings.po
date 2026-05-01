@@ -1,10 +1,10 @@
 # Kodi Media Center language file
 # Addon Name: Kodi GeForceNOW
-# Addon id: script.kodi.geforcenow
+# Addon id: script.geforcenow
 # Addon Provider: Szymon Zborowski <szzborowski@gmail.com>
 msgid ""
 msgstr ""
-"Project-Id-Version: script.kodi.geforcenow\n"
+"Project-Id-Version: script.geforcenow\n"
 "Report-Msgid-Bugs-To: szzborowski@gmail.com\n"
 "POT-Creation-Date: 2025-05-01 15:30-0600\n"
 "PO-Revision-Date: 2025-05-01 15:30-0600\n"
